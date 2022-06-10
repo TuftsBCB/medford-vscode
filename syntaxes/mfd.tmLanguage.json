@@ -1,0 +1,75 @@
+{
+    "scopeName": "source.mfd",
+    "patterns": [{"include": "#record"}],
+    "repository": {
+        "record": {
+            "patterns": [
+                {"include": "#metadata"}, 
+                {"include": "#comment"}, 
+                {"include": "#macro-def"}
+            ]
+        },
+        "comment": {
+            "name": "comment.line.number-sign",
+            "match": "^#(.*)\\n"
+        },
+        "macro-def": {
+            "patterns": [
+                {"include": "#macro"},
+                {"include": "#text"}
+            ]
+        },
+        "macro": {
+            "patterns": [
+                {"include": "#macro-key"},
+                {"include": "#macro-name"}
+            ]
+        },
+        "macro-key": {
+            "name": "constant.language.macro.key",
+            "match": "^`@"
+        },
+        "macro-name": {
+            "contentName": "constant.language.macro.name",
+            "begin": "^`@",
+            "end": "\\s"
+        },
+        "metadata": {
+            "patterns": [
+                {"include": "#token"},
+                {"include": "#text"}
+            ]
+        },
+        "token": {
+            "patterns": [
+                {"include": "#major-token"},
+                {"include": "#minor-token"}
+            ]
+        },
+        "major-token": {
+            "patterns": [
+                {"include": "#token-key"},
+                {"include": "#major-token-name"}
+            ]
+        },
+        "token-key": {
+            "name": "constant.language.token.key",
+            "match": "^@"
+        },
+        "major-token-name": {
+            "contentName": "keyword.control.token.major",
+            "begin": "^@",
+            "end": "[-\\s]"
+        },
+        "minor-token": {
+            "contentName": "keyword.control.token.minor",
+            "begin": "^@([^\\s-]+)-",
+            "end": "[\\s]"
+        },
+        "text": {
+            "contentName": "string.unquoted",
+            "begin": "^@(\\S+)\\s",
+            "end": "[@(`@)#]"
+        }
+    }
+}

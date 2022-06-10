@@ -1,0 +1,52 @@
+{
+    "name": "medford-vscode",
+    "displayName": "medford-vscode",
+    "description": "A language server and extension for the MEDFORD markup language",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.68.0"
+    },
+    "activationEvents": [
+        "onLanguage:medford"
+    ],
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "medford",
+            "aliases": ["MEDFORD", "medford"],
+            "extensions": [".mfd"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "medford",
+            "scopeName": "source.mfd",
+            "path": "./syntaxes/mfd.tmLanguage.json"
+        }],
+        "commands": [
+            {
+                "command": "sayHi",
+                "title": "Say Hi"
+            }
+        ],
+        "configuration": {}
+    },
+    "main": "./client/out/extension",
+    "scripts": {
+      "vscode:prepublish": "npm run compile",
+      "compile": "tsc -b",
+      "watch": "tsc -b -w"
+    },
+    "devDependencies": {
+      "@types/node": "^16.11.6",
+      "@types/vscode": "^1.62.0",
+      "@typescript-eslint/eslint-plugin": "^5.3.0",
+      "@typescript-eslint/parser": "^5.3.0",
+      "eslint": "^8.2.0",
+      "typescript": "^4.4.4"
+    },
+    "dependencies": {
+      "vscode-languageclient": "^7.0.0"
+    }
+}
