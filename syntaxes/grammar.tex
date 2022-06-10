@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{syntax}
+
+\begin{document}
+
+\paragraph{MEDFORD Grammar}
+\setlength{\grammarindent}{10em} % increase separation between LHS/RHS
+
+\newcommand{\ttt}[1]{\texttt{#1}}
+
+\begin{grammar}
+
+<comment> ::= from \ttt{\#} to end-of-line
+
+<macro-name> ::= <string-literal>
+
+<macro> ::= <macro-def> ::= \ttt{\`{}@} <macro-name>
+
+<\LaTeX-literal> ::= \ttt{\$\$} <valid-\LaTeX> \ttt{\$\$}
+
+<text> ::= *(<string-literal> | <\LaTeX-literal> | <macro> | <whitespace>) terminated by (\ttt{\#} | \ttt{@} | \ttt{\`{}@})
+
+<macro-def> ::= <macro> <whitespace> <text>
+
+<minor-token> ::= <string-literal> (parsable tokens defined in the spec)
+
+<data-prov-token> ::= \ttt{Data\_Primary} | \ttt{Data\_Copy} | \ttt{Data\_Ref}
+\alt \ttt{Code\_Primary} | \ttt{Code\_Copy} | \ttt{Code\_Ref}
+\alt \ttt{Paper\_Primary} | \ttt{Paper\_Copy} | \ttt{Paper\_Ref}
+
+<major-token> ::= \ttt{Comment} | \ttt{Contributor} | \ttt{Data} | \ttt{Date} | \ttt{Expedetion} | \ttt{File} | \ttt{Funding} | \ttt{Keyword} | \ttt{Method} | \ttt{Paper} | \ttt{Software} | \ttt{Species} | \ttt{Version}
+\alt <data-prov-token>
+\alt <string-literal>
+
+<metadata> ::= \ttt{@} <major-token> \ttt{-} <minor-token> <whitespace> <text>
+
+<statement> ::= <metadata>
+\alt <comment>
+\alt <macro-def>
+\alt <empty>
+
+<MEDFORD> ::= *<statement>
+
+\end{grammar}
+
+\bigskip
+
+Notes: 
+\begin{itemize}
+    \item \textit{\(<\)string-literal\(>\)} excludes whitespace
+    \item 
+\end{itemize}
+
+% \paragraph{Increase the two lengths}
+% \setlength{\grammarparsep}{20pt plus 1pt minus 1pt} % increase separation between rules
+%  
+
+% \begin{grammar}
+
+% <statement> ::= <ident> `=' <expr> 
+% \alt `for' <ident> `=' <expr> `to' <expr> `do' <statement> 
+% \alt `{' <stat-list> `}' 
+% \alt <empty> 
+
+% <stat-list> ::= <statement> `;' <stat-list> | <statement> 
+
+% \end{grammar}
+\end{document}
