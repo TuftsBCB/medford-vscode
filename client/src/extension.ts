@@ -33,10 +33,10 @@ function getClientOptions(): LanguageClientOptions {
     return {
         // Register the server for plain text documents
         documentSelector: [
-            { scheme: "file", language: "json" },
-            { scheme: "untitled", language: "json" },
+            { scheme: "file", language: "medford" },
+            { scheme: "untitled", language: "medford" },
         ],
-        outputChannelName: "[pygls] JsonLanguageServer",
+        outputChannelName: "[pygls] MEDFORDLanguageServer",
         synchronize: {
             // Notify the server about file changes to '.clientrc files contain in the workspace
             fileEvents: workspace.createFileSystemWatcher("**/.clientrc"),
