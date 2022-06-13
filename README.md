@@ -1,5 +1,23 @@
 # medford-vscode README
 
+## Python Dependencies:
+* [pygls](https://github.com/openlawlibrary/pygls)
+
+## TypeScript Dependencies:
+* `npm` should take care of this for you
+* but you have to [have `npm` installed](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+
+## To Run:
+* Install the dependencies
+* `git clone` the repository
+* Open the root directory in VS Code
+* `npm install && cd client && npm install && cd ..` to install TypeScript dependencies
+* Go to "Run and Debug" view and select "Launch Client" (this will show the syntax highlighting)
+* If you want to run the preliminary Language Server, select "Server + Client"
+* There is a sample MEDFORD file at `testfiles/example.mfd`
+
+<!-- 
+
 This is the README for your extension "medford-vscode". After writing up a brief description, we recommend including the following sections.
 
 ## Features
@@ -63,3 +81,4 @@ Added features X, Y, and Z.
 * [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
 **Enjoy!**
+ -->

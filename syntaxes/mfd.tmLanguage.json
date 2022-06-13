@@ -1,75 +1,75 @@
 {
     "scopeName": "source.mfd",
-    "patterns": [{"include": "#record"}],
+    "patterns": [
+        {"include": "#metadata"},
+        {"include": "#comment"},
+        {"include": "#macro-def"}
+    ],
     "repository": {
-        "record": {
-            "patterns": [
-                {"include": "#metadata"}, 
-                {"include": "#comment"}, 
-                {"include": "#macro-def"}
-            ]
-        },
         "comment": {
-            "name": "comment.line.number-sign",
-            "match": "^#(.*)\\n"
-        },
-        "macro-def": {
             "patterns": [
-                {"include": "#macro"},
-                {"include": "#text"}
+                {
+                    "name": "comment.line.number-sign",
+                    "match": "#.*$"
+                }
             ]
-        },
-        "macro": {
-            "patterns": [
-                {"include": "#macro-key"},
-                {"include": "#macro-name"}
-            ]
-        },
-        "macro-key": {
-            "name": "constant.language.macro.key",
-            "match": "^`@"
-        },
-        "macro-name": {
-            "contentName": "constant.language.macro.name",
-            "begin": "^`@",
-            "end": "\\s"
         },
         "metadata": {
             "patterns": [
-                {"include": "#token"},
-                {"include": "#text"}
+                {
+                    "begin": "(^@)\\b(Comment|Contributor|Data|Date|Expedetion|File|Funding|Keyword|MEDFORD|Method|Paper|Software|Species|Version|Data_Primary|Data_Copy|Data_Ref|Code_Primary|Code_Copy|Code_Ref|Paper_Primary|Paper_Copy|Paper_Ref)\\b(?:(-)\\b(\\S*))?\\b\\s*",
+                    "end": "\\S?(?=^@|^`@|^#)",
+                    "beginCaptures": {
+                        "1": {"name": "keyword.control.metadata"},
+                        "2": {"name": "constant.language.major-token"},
+                        "3": {"name": "keyword.control.token-seperator"},
+                        "4": {"name": "constant.language.minor-token"}
+                    },
+                    "contentName": "string.unquoted.text",
+                    "patterns": [
+                        {
+                            "match": "(?<!^)(`@)([^{\\s]+)",
+                            "captures": {
+                                "1": {"name": "keyword.control.macro"},
+                                "2": {"name": "support.variable.macro"}
+                            }
+                        },
+                        {
+                            "match": "(?<!^)(`@)({)([^}]+)(})",
+                            "captures": {
+                                "1": {"name": "keyword.control.macro"},
+                                "2": {"name": "keyword.control.macro-brace"},
+                                "3": {"name": "support.variable.macro"},
+                                "4": {"name": "keyword.control.macro-brace"}
+                            }
+                        }
+                    ]
+                }
             ]
         },
-        "token": {
+        "macro-def": {
             "patterns": [
-                {"include": "#major-token"},
-                {"include": "#minor-token"}
+                {
+                    "begin": "(^`@)([^{\\s]+)\\s*",
+                    "end": "\\S?(?=^@|^`@|^#)",
+                    "beginCaptures": {
+                        "1": {"name": "keyword.control.macro"},
+                        "2": {"name": "support.variable.macro"}
+                    },
+                    "contentName": "entity.name.macro-body"
+                },
+                {
+                    "begin": "(^`@)({)([^}]+)(})\\s+",
+                    "end": "\\S?(?=^@|^`@|^#)",
+                    "beginCaptures": {
+                        "1": {"name": "keyword.control.macro"},
+                        "2": {"name": "keyword.control.macro-brace"},
+                        "3": {"name": "support.variable.macro"},
+                        "4": {"name": "keyword.control.macro-brace"}
+                    },
+                    "contentName": "entity.name.macro-body"
+                }
             ]
-        },
-        "major-token": {
-            "patterns": [
-                {"include": "#token-key"},
-                {"include": "#major-token-name"}
-            ]
-        },
-        "token-key": {
-            "name": "constant.language.token.key",
-            "match": "^@"
-        },
-        "major-token-name": {
-            "contentName": "keyword.control.token.major",
-            "begin": "^@",
-            "end": "[-\\s]"
-        },
-        "minor-token": {
-            "contentName": "keyword.control.token.minor",
-            "begin": "^@([^\\s-]+)-",
-            "end": "[\\s]"
-        },
-        "text": {
-            "contentName": "string.unquoted",
-            "begin": "^@(\\S+)\\s",
-            "end": "[@(`@)#]"
         }
     }
 }

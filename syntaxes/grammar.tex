@@ -3,7 +3,10 @@
 
 \begin{document}
 
-\paragraph{MEDFORD Grammar}
+\title{MEDFORD Grammar}
+\date{}
+\maketitle
+
 \setlength{\grammarindent}{10em} % increase separation between LHS/RHS
 
 \newcommand{\ttt}[1]{\texttt{#1}}
@@ -12,18 +15,17 @@
 
 <comment> ::= from \ttt{\#} to end-of-line
 
-<macro-name> ::= <string-literal>
+<macro> ::= \ttt{\`{}@} <string-literal>
+\alt \ttt{\`{}@ \{}1*(<string-literal> | <whitespace>)\ttt{\}}
 
-<macro> ::= \ttt{\`{}@} <macro-name>
-\alt \ttt{\`{}@} \{<macro-name>\}
+<\LaTeX-literal> ::= \ttt{\$\$} <\LaTeX> \ttt{\$\$}
 
-<\LaTeX-literal> ::= \ttt{\$\$} <valid-\LaTeX> \ttt{\$\$}
+<text> ::= *(<string-literal> | <\LaTeX-literal> | <macro> | <whitespace>) 
+terminated by (\ttt{\#} | \ttt{@} | \ttt{\`{}@})
 
-<text> ::= *(<string-literal> | <\LaTeX-literal> | <macro> | <whitespace>) terminated by (\ttt{\#} | \ttt{@} | \ttt{\`{}@})
+<macro-def> ::= <macro> <whitespace> <text>
 
-<macro-def> ::= \ttt{\`{}@} <macro-name> <whitespace> <text>
-
-<minor-token> ::= <string-literal> (parsable tokens defined in the spec)
+<minor-token> ::= <string-literal> (expected tokens defined in the spec)
 
 <data-prov-token> ::= \ttt{Data\_Primary} | \ttt{Data\_Copy} | \ttt{Data\_Ref}
 \alt \ttt{Code\_Primary} | \ttt{Code\_Copy} | \ttt{Code\_Ref}
