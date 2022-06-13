@@ -1,4 +1,4 @@
-# medford-vscode README
+# medford-vscode
 
 ## Python Dependencies:
 * [pygls](https://github.com/openlawlibrary/pygls)
