@@ -15,12 +15,13 @@
 <macro-name> ::= <string-literal>
 
 <macro> ::= \ttt{\`{}@} <macro-name>
+\alt \ttt{\`{}@} \{<macro-name>\}
 
 <\LaTeX-literal> ::= \ttt{\$\$} <valid-\LaTeX> \ttt{\$\$}
 
 <text> ::= *(<string-literal> | <\LaTeX-literal> | <macro> | <whitespace>) terminated by (\ttt{\#} | \ttt{@} | \ttt{\`{}@})
 
-<macro-def> ::= <macro> <whitespace> <text>
+<macro-def> ::= \ttt{\`{}@} <macro-name> <whitespace> <text>
 
 <minor-token> ::= <string-literal> (parsable tokens defined in the spec)
 
@@ -48,7 +49,6 @@
 Notes: 
 \begin{itemize}
     \item \textit{\(<\)string-literal\(>\)} excludes whitespace
-    \item This doesn't include the \ttt{\`{}@\{macro\}} syntax yet
 \end{itemize}
 
 % \paragraph{Increase the two lengths}
