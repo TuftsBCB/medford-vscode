@@ -12,8 +12,8 @@
 * `git clone` this repository
 * Open the root directory in VS Code
 * `npm install && cd client && npm install && cd ..` to install TypeScript dependencies
-* Go to "Run and Debug" view and select "Launch Client" (this will show the syntax highlighting)
-* There is a sample MEDFORD file at `testfiles/example.mfd`
+* Go to "Run and Debug" view and select "Launch Client"
+* There is a sample MEDFORD file at `testfiles/example.mfd`, open it up to try it out!
 
 <!-- 
 
