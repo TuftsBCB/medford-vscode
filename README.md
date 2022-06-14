@@ -9,17 +9,11 @@
 
 ## To Run:
 * Install the dependencies
-* `git clone` the repository
+* `git clone` this repository
 * Open the root directory in VS Code
 * `npm install && cd client && npm install && cd ..` to install TypeScript dependencies
 * Go to "Run and Debug" view and select "Launch Client" (this will show the syntax highlighting)
-* If you want to run the preliminary Language Server, select "Server + Client"
 * There is a sample MEDFORD file at `testfiles/example.mfd`
-
-## To Add a Major Token:
-* Run `regex_gen.py` with the first argument being the major token name and the
-subsequent arguments being the expected minor tokens.
-* The output will be a TextMate rule that can be pasted in to the `mfd.tmLanguage.json` file.
 
 <!-- 
 
