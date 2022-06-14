@@ -2,7 +2,7 @@
 # Last Modified: 06/15/2021
 # 
 # Edited: Liam Strand
-# On: 6/13/2022
+# On: 6/14/2022
 
 # This is a MEDFORD file to describe the publication defining what a MEDFORD file is!
 # Liam ended up using it as a testbed for syntax highlighting 
@@ -10,29 +10,32 @@
 @Paper_Primary-Note A paper describing the implementation of the MEDFORD file format, which has a parser that
 can take a provided MEDFORD file and additional arbitrary files and put them into a bag. A MEDFORD file can also
 be translated into other formats, such as the BCODMO submission format.
+@Paper_Primary-DOI [..] A paper describing the implementation of the MEDFORD file format, which has a parser that
+can take a provided MEDFORD file a [..] $$ \texttt{words} $$
 
-`@location Bonney Lake
 `@{more fun names} Hello World
 
 `@thisisamacro woah macros
 
 `@{whaosh micor space} hellooooo
 
-@MEDFORD description
-@MEDFORD-Version 1.0
+`@theworldwillknow what you did
+
+@Version 1.0
 
 @Data_Primary `@thisisamacro `@{waosh micor space} yeaaah
 # comments comments
 
+`@location Bonney Lake
 
-@Data `@{location} words
+@Data  words `@{location}
 @Data `@location words
 
 @Contributor Polina Shpilker
-@Contributor-Association Department of Computer Science, Tufts University, 1XX College Ave, 02155, MA, USA
+@Contributor-Association Department of Comp`@{theworldwillknow}uter [..] Science, Tufts University, 1XX College Ave, 02155, MA, USA
 @Contributor-Role First Author
 @Contributor-Role Corresponding Author
-@Contributor-Email polina.shpilker@tufts.edu
+@Contributor-Email polina.shpilker@tufts.edu[..]
 
 @Contributor John Freeman
 @Contributor-Association Department of Computer Science, Tufts University, 1XX College Ave, 02155, MA, USA
