@@ -6,7 +6,7 @@ import sys
 def main(major: str, minors: list):
     if minors:
         regex_string = f"""{{
-    "begin": "({major})(?:(-)(?:({"|".join(minors)})|(\\\\S+)))?\\\\s+",
+    "begin": "(?<=^@)({major})(?:(-)(?:({"|".join(minors)})|(\\\\S+)))?\\\\s+",
     "end": "\\\\S?(?=^@|^`@|^#)",
     "beginCaptures": {{
         "1": {{"name": "constant.language.major-token"}},
@@ -18,7 +18,7 @@ def main(major: str, minors: list):
 }},"""
     else:
         regex_string = f"""{{
-    "begin": "({major})(?:(-)(?:\\\\S+))?\\\\s+",
+    "begin": "(?<=^@)({major})(?:(-)(?:\\\\S+))?\\\\s+",
     "end": "\\\\S?(?=^@|^`@|^#)",
     "beginCaptures": {{
         "1": {{"name": "constant.language.major-token"}},

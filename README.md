@@ -16,6 +16,11 @@
 * If you want to run the preliminary Language Server, select "Server + Client"
 * There is a sample MEDFORD file at `testfiles/example.mfd`
 
+## To Add a Major Token:
+* Run `regex_gen.py` with the first argument being the major token name and the
+subsequent arguments being the expected minor tokens.
+* The output will be a TextMate rule that can be pasted in to the `mfd.tmLanguage.json` file.
+
 <!-- 
 
 This is the README for your extension "medford-vscode". After writing up a brief description, we recommend including the following sections.
