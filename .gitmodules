@@ -1,0 +1,3 @@
+[submodule "medford-language-server"]
+	path = medford-language-server
+	url = git@github.com:liam-strand/medford-language-server.git
