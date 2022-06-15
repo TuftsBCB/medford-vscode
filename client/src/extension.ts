@@ -90,7 +90,7 @@ export function activate(context: ExtensionContext): void {
             .get<string>("pythonPath");
 
         if (!pythonPath) {
-            throw new Error("`python.pythonPath` is not set");
+            throw new Error("python.pythonPath` is not set");
         }
 
         client = startLangServer(pythonPath, ["-m", "medford-language-server"], cwd);

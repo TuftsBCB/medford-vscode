@@ -14,33 +14,32 @@ arbitrary files and put them into a bag. A MEDFORD file can also be translated
 into other formats, such as the BCODMO submission format.
 @Paper_Primary-DOI 2022-06-14
 
-@UserDefinedMajorToken words yay $$ \texttt{words} $$
-@UserDefinedMajorToken-Minor aww no
-@UserDefinedMajorToken-desc burn it to the ground!
+# @UserDefinedMajorToken words yay $$ \texttt{words} $$
+# @UserDefinedMajorToken-SomethingSmaller aww no
+# @UserDefinedMajorToken-description burn it to the ground!
 
 
-`@{more fun ames} Hello World
+`@more fun ames Hello World 
 `@thisisamacro woah macros
-`@{whaosh micor space} hellooooo
+`@whaosh micor space hellooooo
 `@theworldwillknow what you did
 
 @MEDFORD MEDFORD
 @MEDFORD-Version 1.0
 
-@Data_Primary `@thisisamacro `@{waosh micor space} yeaaah
+@Data_Primary `@thisisamacro `@waosh yeaaah
 @Data_Primary-Path ./example.mfd.JSON
 # comments comments
 
 `@location Bonney Lake
-
-@Data  words `@{location}
+@Data  words `@{location} 
 @Data `@location words
 
 @Contributor Polina Shpilker
 @Contributor-Association Department of Comp`@{theworldwillknow}uter  
 Science, Tufts University, 1XX College Ave, 02155, MA, USA
 @Contributor-Role First Author
-@Contributor-Role Corresponding Author
+@Contributor-Role Corresponding Author fewjfkenqfk kqwerfjeqkfbq kqehfb 
 @Contributor-Email polina.shpilker@tufts.edu
 
 @Contributor John Freeman
