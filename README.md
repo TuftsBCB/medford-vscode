@@ -1,7 +1,8 @@
 # medford-vscode
 
 ## Python Dependencies:
-* [pygls](https://github.com/openlawlibrary/pygls)
+* [pygls](https://pypi.org/project/pygls/)
+* [medford](https://pypi.org/project/medford/)
 
 ## TypeScript Dependencies:
 * `npm` should take care of this for you
