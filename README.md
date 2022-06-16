@@ -9,7 +9,7 @@
 
 ## To Run:
 * Install the dependencies
-* `git clone` this repository
+* `git clone` this repository, you must use the `--recurse-submodules` flag
 * Open the root directory in VS Code
 * `npm install && cd client && npm install && cd ..` to install TypeScript dependencies
 * Go to "Run and Debug" view and select "Launch Client"
