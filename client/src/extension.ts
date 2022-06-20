@@ -26,9 +26,9 @@ function getClientOptions(): LanguageClientOptions {
     };
 }
 
-function startLangServerTCP(addr: number): LanguageClient {
+function connectToLangServerTCP(addr: number): LanguageClient {
     const serverOptions: ServerOptions = () => {
-        return new Promise((resolve /*, reject */) => {
+        return new Promise((resolve /* , reject */) => {
             const clientSocket = new net.Socket();
             clientSocket.connect(addr, "127.0.0.1", () => {
                 resolve({
@@ -63,7 +63,7 @@ function startLangServer(
 export function activate(context: ExtensionContext): void {
     if (context.extensionMode === ExtensionMode.Development) {
         // Development - Run the server manually
-        client = startLangServerTCP(2087);
+        client = connectToLangServerTCP(2087);
     } else {
         // Production - Client is going to run the server (for use within `.vsix` package)
         const cwd = path.join(__dirname, "..", "..");
