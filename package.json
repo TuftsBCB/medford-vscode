@@ -29,7 +29,7 @@
             "type": "object",
             "title": "MEDFORD Server Configuration",
             "properties": {
-                "jsonServer.exampleConfiguration": {
+                "medfordServer.exampleConfiguration": {
                     "scope": "resource",
                     "type": "string",
                     "default": "You can override this message."
