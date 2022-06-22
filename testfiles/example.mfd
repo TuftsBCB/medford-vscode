@@ -12,12 +12,10 @@ facilitate FAIR coral metadata
 format, which has a parser that can take a provided MEDFORD file and additional
 arbitrary files and put them into a bag. A MEDFORD file can also be translated 
 into other formats, such as the BCODMO submission format.
-@Paper_Primary-DOI 2022-06-14
+@Paper_Primary-DOI 2022-06-14 
 
-# @UserDefinedMajorToken words yay $$ \texttt{words} $$
-# @UserDefinedMajorToken-SomethingSmaller aww no
-# @UserDefinedMajorToken-description burn it to the ground!
-
+@UserDefinedMajorToken whe
+@UserDefinedMajorToken-description burn it to the ground!
 
 `@more fun ames Hello World 
 `@thisisamacro woah macros
@@ -38,7 +36,7 @@ into other formats, such as the BCODMO submission format.
 @Contributor Polina Shpilker
 @Contributor-Association Department of Comp`@{theworldwillknow}uter  
 Science, Tufts University, 1XX College Ave, 02155, MA, USA
-@Contributor-Role First Author
+@Contributor-Role First Author stuff`@{more}stuff
 @Contributor-Role Corresponding Author fewjfkenqfk kqwerfjeqkfbq kqehfb 
 @Contributor-Email polina.shpilker@tufts.edu
 
