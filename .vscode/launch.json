@@ -14,27 +14,28 @@
                 "script": "compile"
             },
             "env": {
-                "VSCODE_DEBUG_MODE": "true"
+                "VSCODE_DEBUG_MODE": "true",
+                "PYTHONPATH": "${workspaceRoot}/medford-language-server"
             }
         },
         {
             "name": "Launch Server",
             "type": "python",
             "request": "launch",
-            "module": "medford-language-server",
+            "module": "mfdls",
             "args": ["--tcp"],
             "justMyCode": false,
             "python": "${command:python.interpreterPath}",
             "cwd": "${workspaceFolder}",
             "env": {
-                "PYTHONPATH": "${workspaceFolder}"
+                "PYTHONPATH": "${workspaceFolder}/medford-language-server"
             }
         },
         {
             "name": "Launch Server [WebSockets]",
             "type": "python",
             "request": "launch",
-            "module": "medford-language-server",
+            "module": "mfdls",
             "args": ["--ws"],
             "justMyCode": false,
             "python": "${command:python.interpreterPath}",

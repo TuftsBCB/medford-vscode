@@ -75,7 +75,7 @@ export function activate(context: ExtensionContext): void {
             throw new Error("python.pythonPath` is not set");
         }
 
-        client = startLangServer(pythonPath, ["-m", "medford-language-server"], cwd);
+        client = startLangServer(pythonPath, ["-m", "mfdls"], cwd);
     }
 
     context.subscriptions.push(client.start());

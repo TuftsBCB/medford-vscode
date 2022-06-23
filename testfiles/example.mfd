@@ -5,7 +5,7 @@
 # On: 6/14/2022
 
 # This is a MEDFORD file to describe the publication defining MEDFORD!
-# Liam ended up using it as a testbed for syntax highlighting 
+# Liam ended up using it as a testbed for the language server
 @Paper_Primary MEDFORD: A human and machine readable markup language to 
 facilitate FAIR coral metadata
 @Paper_Primary-Note A paper describing the implementation of the MEDFORD file 
@@ -14,8 +14,8 @@ arbitrary files and put them into a bag. A MEDFORD file can also be translated
 into other formats, such as the BCODMO submission format.
 @Paper_Primary-DOI 2022-06-14 
 
-@UserDefinedMajorToken whe
-@UserDefinedMajorToken-description burn it to the ground!
+@UserDefinedMajorToken description
+@UserDefinedMajorToken-words burn it to the ground!
 
 `@more fun ames Hello World 
 `@thisisamacro woah macros
@@ -25,8 +25,8 @@ into other formats, such as the BCODMO submission format.
 @MEDFORD MEDFORD
 @MEDFORD-Version 1.0
 
-@Data_Primary `@thisisamacro `@waosh yeaaah
-@Data_Primary-Path ./example.mfd.JSON
+@Data_Primary `@thisisamacro yeaaah
+@Data_Primary-Path ./example.mfd.JSON 
 # comments comments
 
 `@location Bonney Lake
