@@ -8,8 +8,11 @@ import {
     LanguageClientOptions,
     ServerOptions,
 } from "vscode-languageclient/node";
+import * as cp from "child_process";
 
 let client: LanguageClient;
+
+const DEBUG_CLIENT = false;
 
 function getClientOptions(): LanguageClientOptions {
     return {
@@ -24,6 +27,27 @@ function getClientOptions(): LanguageClientOptions {
             fileEvents: workspace.createFileSystemWatcher("**/.clientrc"),
         },
     };
+}
+
+function verifyServerExists(): void {
+    // get the same python that the extension uses
+    const pythonPath = workspace
+        .getConfiguration("python")
+        .get<string>("pythonPath");
+    try {
+        // check if mfdls is installed already
+        cp.execSync(pythonPath + " -c 'import mfdls'");
+    } catch (e) {
+        window.showWarningMessage("Could not find mfdls, installing now");
+        try {
+            // if not, try to install it.
+            cp.execSync(pythonPath + " -m pip install -i https://test.pypi.org/simple/ mfdls");
+        } catch (e) {
+            window.showErrorMessage("Could not install mfdls");
+            throw new Error("could not install mfdls")
+        }
+        window.showInformationMessage("Successfully installed mfdls");
+    }
 }
 
 function connectToLangServerTCP(addr: number): LanguageClient {
@@ -61,7 +85,7 @@ function startLangServer(
 }
 
 export function activate(context: ExtensionContext): void {
-    if (context.extensionMode === ExtensionMode.Development) {
+    if (context.extensionMode === ExtensionMode.Development && !DEBUG_CLIENT) {
         // Development - Run the server manually
         client = connectToLangServerTCP(2087);
     } else {
@@ -74,6 +98,9 @@ export function activate(context: ExtensionContext): void {
         if (!pythonPath) {
             throw new Error("python.pythonPath` is not set");
         }
+        
+        // Check that the mfdls server exists. If it doesn't, try to install it
+        verifyServerExists();
 
         client = startLangServer(pythonPath, ["-m", "mfdls"], cwd);
     }
