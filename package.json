@@ -27,13 +27,8 @@
         "commands": [],
         "configuration": {
             "type": "object",
-            "title": "MEDFORD Server Configuration",
+            "title": "medfordServer",
             "properties": {
-                "medfordServer.exampleConfiguration": {
-                    "scope": "resource",
-                    "type": "string",
-                    "default": "You can override this message."
-                }
             }
         }
     },

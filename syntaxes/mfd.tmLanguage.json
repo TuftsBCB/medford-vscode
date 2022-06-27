@@ -272,28 +272,14 @@
             ]
         },
         "macro-def": {
-            "patterns": [
-                {
-                    "begin": "(^`@)([^{\\s]+)\\s*",
-                    "end": "\\S?(?=^@|^`@|^#)",
-                    "beginCaptures": {
-                        "1": {"name": "keyword.control.macro"},
-                        "2": {"name": "support.variable.macro"}
-                    },
-                    "contentName": "entity.name.macro-body.mfd"
-                },
-                {
-                    "begin": "(^`@)({)([^}]+)(})\\s+",
-                    "end": "\\S?(?=^@|^`@|^#)",
-                    "beginCaptures": {
-                        "1": {"name": "keyword.control.macro.mfd"},
-                        "2": {"name": "punctuation.definition.macro-brace-begin.mfd"},
-                        "3": {"name": "support.variable.macro.mfd"},
-                        "4": {"name": "punctuation.definition.macro-brace-end.mfd"}
-                    },
-                    "contentName": "entity.name.macro-body.mfd"
-                }                
-            ]
+            "begin": "(^`@)([^{\\s]+)\\s*",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.macro"},
+                "2": {"name": "support.variable.macro"}
+            },
+            "contentName": "entity.name.macro-body.mfd"
+
         },
         "macro-use": {
             "patterns": [
@@ -305,7 +291,7 @@
                     }
                 },
                 {
-                    "match": "(?<!^)(`@)({)([^}]+)(})",
+                    "match": "(?<!^)(`@)({)([^}\\s]+)(})",
                     "captures": {
                         "1": {"name": "keyword.control.macro.mfd"},
                         "2": {"name": "punctuation.definition.macro-brace-begin.mfd"},
