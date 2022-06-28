@@ -29,19 +29,15 @@ function getClientOptions(): LanguageClientOptions {
     };
 }
 
-function verifyServerExists(): void {
-    // get the same python that the extension uses
-    const pythonPath = workspace
-        .getConfiguration("python")
-        .get<string>("pythonPath");
+function verifyServerExists(pythonPath: string): void {
     try {
         // check if mfdls is installed already
-        cp.execSync(pythonPath + " -c 'import mfdls'");
+        cp.execSync(`${pythonPath} -c "import mfdls"`);
     } catch (e) {
-        window.showWarningMessage("Could not find mfdls, installing now");
+        window.showWarningMessage(`Could not find mfdls in ${pythonPath}, attempting to install now`);
         try {
             // if not, try to install it.
-            cp.execSync(pythonPath + " -m pip install -i https://test.pypi.org/simple/ mfdls");
+            cp.execSync(`${pythonPath} -m pip install -i https://test.pypi.org/simple/ mfdls`);
         } catch (e) {
             window.showErrorMessage("Could not install mfdls");
             throw new Error("could not install mfdls")
@@ -100,7 +96,7 @@ export function activate(context: ExtensionContext): void {
         }
         
         // Check that the mfdls server exists. If it doesn't, try to install it
-        verifyServerExists();
+        verifyServerExists(pythonPath);
 
         client = startLangServer(pythonPath, ["-m", "mfdls"], cwd);
     }

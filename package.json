@@ -24,12 +24,24 @@
             "scopeName": "source.mfd",
             "path": "./syntaxes/mfd.tmLanguage.json"
         }],
-        "commands": [],
+        "commands": [
+            {
+                "command": "installMFDLS",
+                "title": "Install the medford language server (mfdls)"
+            },
+            {
+                "command": "updateMFDLS",
+                "title": "Update the medford language server (mfdls)"
+            },
+            {
+                "command": "uninstallMFDLS",
+                "title": "Uninstall the medford language server (mfdls)"
+            }
+        ],
         "configuration": {
             "type": "object",
             "title": "medfordServer",
-            "properties": {
-            }
+            "properties": {}
         }
     },
     "main": "./client/out/extension",
