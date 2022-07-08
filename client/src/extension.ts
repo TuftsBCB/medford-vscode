@@ -29,22 +29,22 @@ function getClientOptions(): LanguageClientOptions {
     };
 }
 
-function verifyServerExists(pythonPath: string): void {
-    try {
-        // check if mfdls is installed already
-        cp.execSync(`${pythonPath} -c "import mfdls"`);
-    } catch (e) {
-        window.showWarningMessage(`Could not find mfdls in ${pythonPath}, attempting to install now`);
-        try {
-            // if not, try to install it.
-            cp.execSync(`${pythonPath} -m pip install mfdls`);
-        } catch (e) {
-            window.showErrorMessage("Could not install mfdls");
-            throw new Error("could not install mfdls")
-        }
-        window.showInformationMessage("Successfully installed mfdls");
-    }
-}
+// function verifyServerExists(pythonPath: string): void {
+//     try {
+//         // check if mfdls is installed already
+//         cp.execSync(`${pythonPath} -c "import mfdls"`);
+//     } catch (e) {
+//         window.showWarningMessage(`Could not find mfdls in ${pythonPath}, attempting to install now`);
+//         try {
+//             // if not, try to install it.
+//             cp.execSync(`${pythonPath} -m pip install mfdls`);
+//         } catch (e) {
+//             window.showErrorMessage("Could not install mfdls");
+//             throw new Error("could not install mfdls")
+//         }
+//         window.showInformationMessage("Successfully installed mfdls");
+//     }
+// }
 
 function connectToLangServerTCP(addr: number): LanguageClient {
     const serverOptions: ServerOptions = () => {

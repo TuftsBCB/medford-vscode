@@ -1,8 +1,7 @@
 # medford-vscode
 
-more will come.
-
-This is just a placeholder
+An implementation of the Language Server Protocol to provide editor support for
+the MEDFORD metadata markup language.
 
 <!-- 
 ## Python Dependencies:
