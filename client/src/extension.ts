@@ -12,7 +12,7 @@ import * as cp from "child_process";
 
 let client: LanguageClient;
 
-const DEBUG_CLIENT = false;
+const DEBUG_CLIENT = true;
 
 function getClientOptions(): LanguageClientOptions {
     return {
@@ -37,7 +37,7 @@ function verifyServerExists(pythonPath: string): void {
         window.showWarningMessage(`Could not find mfdls in ${pythonPath}, attempting to install now`);
         try {
             // if not, try to install it.
-            cp.execSync(`${pythonPath} -m pip install -i https://test.pypi.org/simple/ mfdls`);
+            cp.execSync(`${pythonPath} -m pip install mfdls`);
         } catch (e) {
             window.showErrorMessage("Could not install mfdls");
             throw new Error("could not install mfdls")
@@ -86,7 +86,7 @@ export function activate(context: ExtensionContext): void {
         client = connectToLangServerTCP(2087);
     } else {
         // Production - Client is going to run the server (for use within `.vsix` package)
-        const cwd = path.join(__dirname, "..", "..");
+        const cwd = path.join(__dirname, "..", "..", "medford-language-server");
         const pythonPath = workspace
             .getConfiguration("python")
             .get<string>("pythonPath");
@@ -96,14 +96,18 @@ export function activate(context: ExtensionContext): void {
         }
         
         // Check that the mfdls server exists. If it doesn't, try to install it
-        verifyServerExists(pythonPath);
+        // verifyServerExists(pythonPath);
+
 
         client = startLangServer(pythonPath, ["-m", "mfdls"], cwd);
+
     }
 
     context.subscriptions.push(client.start());
+
 }
 
 export function deactivate(): Thenable<void> {
     return client ? client.stop() : Promise.resolve();
 }
+``

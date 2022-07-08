@@ -1,5 +1,10 @@
 # medford-vscode
 
+more will come.
+
+This is just a placeholder
+
+<!-- 
 ## Python Dependencies:
 * [pygls](https://pypi.org/project/pygls/)
 * [medford](https://pypi.org/project/medford/)
@@ -15,10 +20,6 @@
 * `npm install && cd client && npm install && cd ..` to install TypeScript dependencies
 * Go to "Run and Debug" view and select "Launch Client"
 * There is a sample MEDFORD file at `testfiles/example.mfd`, open it up to try it out!
-
-<!-- 
-
-This is the README for your extension "medford-vscode". After writing up a brief description, we recommend including the following sections.
 
 ## Features
 

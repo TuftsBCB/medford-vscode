@@ -2,7 +2,14 @@
     "name": "medford-vscode",
     "displayName": "medford-vscode",
     "description": "A language server and extension for the MEDFORD markup language",
-    "version": "0.0.1",
+    "readme": "README.md",
+    "author": {"email": "Liam.Strand@tufts.edu", "name": "Liam Strand"},
+    "publisher": "TuftsBCB",
+    "repository": {
+        "type": "git",
+        "directory": "https://github.com/liam-strand/medford-vscode.git"
+    },
+    "version": "0.0.3",
     "engines": {
         "vscode": "^1.68.0"
     },
@@ -13,17 +20,26 @@
         "Programming Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "medford",
-            "aliases": ["MEDFORD", "medford"],
-            "extensions": [".mfd"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "medford",
-            "scopeName": "source.mfd",
-            "path": "./syntaxes/mfd.tmLanguage.json"
-        }],
+        "languages": [
+            {
+                "id": "medford",
+                "aliases": [
+                    "MEDFORD",
+                    "medford"
+                ],
+                "extensions": [
+                    ".mfd"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "medford",
+                "scopeName": "source.mfd",
+                "path": "./syntaxes/mfd.tmLanguage.json"
+            }
+        ],
         "commands": [
             {
                 "command": "installMFDLS",
@@ -46,19 +62,20 @@
     },
     "main": "./client/out/extension",
     "scripts": {
-      "vscode:prepublish": "npm run compile",
-      "compile": "tsc -b",
-      "watch": "tsc -b -w"
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -b",
+        "watch": "tsc -b -w"
     },
     "devDependencies": {
-      "@types/node": "^16.11.6",
-      "@types/vscode": "^1.62.0",
-      "@typescript-eslint/eslint-plugin": "^5.3.0",
-      "@typescript-eslint/parser": "^5.3.0",
-      "eslint": "^8.2.0",
-      "typescript": "^4.4.4"
+        "@types/node": "^16.11.6",
+        "@types/vscode": "^1.62.0",
+        "@typescript-eslint/eslint-plugin": "^5.3.0",
+        "@typescript-eslint/parser": "^5.3.0",
+        "eslint": "^8.2.0",
+        "typescript": "^4.4.4"
     },
     "dependencies": {
-      "vscode-languageclient": "^7.0.0"
+        "vsce": "^2.9.2",
+        "vscode-languageclient": "^7.0.0"
     }
 }
