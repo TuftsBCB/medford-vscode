@@ -9,7 +9,7 @@
         "type": "git",
         "directory": "https://github.com/liam-strand/medford-vscode.git"
     },
-    "version": "0.0.5",
+    "version": "0.0.6",
     "engines": {
         "vscode": "^1.68.0"
     },

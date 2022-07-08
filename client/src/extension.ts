@@ -12,7 +12,7 @@ import * as cp from "child_process";
 
 let client: LanguageClient;
 
-const DEBUG_CLIENT = true;
+const DEBUG_CLIENT = false;
 
 function getClientOptions(): LanguageClientOptions {
     return {
@@ -90,8 +90,6 @@ export function activate(context: ExtensionContext): void {
         const pythonPath = workspace
             .getConfiguration("python")
             .get<string>("pythonPath");
-
-        window.showInformationMessage(pythonPath)
 
         if (!pythonPath) {
             throw new Error("python.pythonPath` is not set");

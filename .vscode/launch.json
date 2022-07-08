@@ -25,10 +25,7 @@
             "args": ["--tcp"],
             "justMyCode": false,
             "python": "${command:python.interpreterPath}",
-            "cwd": "${workspaceFolder}",
-            "env": {
-                "PYTHONPATH": "${workspaceFolder}/medford-language-server"
-            }
+            "cwd": "${workspaceFolder}/medford-language-server",
         },
         {
             "name": "Launch Server [WebSockets]",
@@ -38,10 +35,7 @@
             "args": ["--ws"],
             "justMyCode": false,
             "python": "${command:python.interpreterPath}",
-            "cwd": "${workspaceFolder}",
-            "env": {
-                "PYTHONPATH": "${workspaceFolder}/medford-language-server"
-            }
+            "cwd": "${workspaceFolder}/medford-language-server",
         }
     ],
     "compounds": [
