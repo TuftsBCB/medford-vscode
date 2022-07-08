@@ -9,7 +9,7 @@
         "type": "git",
         "directory": "https://github.com/liam-strand/medford-vscode.git"
     },
-    "version": "0.0.4",
+    "version": "0.0.5",
     "engines": {
         "vscode": "^1.68.0"
     },
@@ -40,20 +40,7 @@
                 "path": "./syntaxes/mfd.tmLanguage.json"
             }
         ],
-        "commands": [
-            {
-                "command": "installMFDLS",
-                "title": "Install the medford language server (mfdls)"
-            },
-            {
-                "command": "updateMFDLS",
-                "title": "Update the medford language server (mfdls)"
-            },
-            {
-                "command": "uninstallMFDLS",
-                "title": "Uninstall the medford language server (mfdls)"
-            }
-        ],
+        "commands": [],
         "configuration": {
             "type": "object",
             "title": "medfordServer",

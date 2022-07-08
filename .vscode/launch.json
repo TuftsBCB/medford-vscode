@@ -15,7 +15,6 @@
             },
             "env": {
                 "VSCODE_DEBUG_MODE": "true",
-                // "PYTHONPATH": "${workspaceRoot}/medford-language-server:${workspaceRoot}/../medford/src"
             }
         },
         {
@@ -28,7 +27,7 @@
             "python": "${command:python.interpreterPath}",
             "cwd": "${workspaceFolder}",
             "env": {
-                "PYTHONPATH": "${workspaceFolder}/medford-language-server:${workspaceRoot}/../medford/src"
+                "PYTHONPATH": "${workspaceFolder}/medford-language-server"
             }
         },
         {
@@ -41,7 +40,7 @@
             "python": "${command:python.interpreterPath}",
             "cwd": "${workspaceFolder}",
             "env": {
-                "PYTHONPATH": "${workspaceFolder}"
+                "PYTHONPATH": "${workspaceFolder}/medford-language-server"
             }
         }
     ],
