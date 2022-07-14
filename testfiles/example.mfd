@@ -32,7 +32,7 @@ into other formats, such as the BCODMO submission format.
 @Contributor Liam Strand
 
 `@location Bonney Lake
-@Data_Primary words `@{location}  
+@Data_Primary words `@{location}
 @Data_Primary-Path stuff
 
 
