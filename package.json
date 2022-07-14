@@ -9,7 +9,7 @@
         "type": "git",
         "directory": "https://github.com/liam-strand/medford-vscode.git"
     },
-    "version": "0.0.6",
+    "version": "0.0.7",
     "engines": {
         "vscode": "^1.68.0"
     },
@@ -44,7 +44,9 @@
         "configuration": {
             "type": "object",
             "title": "medfordServer",
-            "properties": {}
+            "properties": {
+                
+            }
         }
     },
     "main": "./client/out/extension",

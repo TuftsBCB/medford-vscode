@@ -19,14 +19,14 @@
             "contentName": "meta.metadata.mfd",
             "patterns": [
                 {
-                    "begin": "(?<=^@)((?:Code_Primary)|(?:Code_Copy)|(?:Code_Ref)|Code)(?:(-)(?:(Path|Destination|URI)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(MEDFORD)(?:(-)(?:(Version)|(\\S+)))?\\s+",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token.mfd"},
-                        "2": {"name": "keyword.control.token-seperator.mfd"},
-                        "3": {"name": "constant.language.minor-token.mfd"}
+                        "1": {"name": "constant.language.major-token"},
+                        "2": {"name": "keyword.control.token-seperator"},
+                        "3": {"name": "constant.language.minor-token"}
                     },
-                    "contentName": "string.unquoted.text.mfd",
+                    "contentName": "string.unquoted.text",
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
@@ -34,14 +34,14 @@
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Comment)(?:(-)(?:()|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Paper_Ref)(?:(-)(?:(Note|URI|Filename|Link|PMID|DOI)|(\\S+)))?\\s+",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token.mfd"},
-                        "2": {"name": "keyword.control.token-seperator.mfd"},
-                        "3": {"name": "constant.language.minor-token.mfd"}
+                        "1": {"name": "constant.language.major-token"},
+                        "2": {"name": "keyword.control.token-seperator"},
+                        "3": {"name": "constant.language.minor-token"}
                     },
-                    "contentName": "string.unquoted.text.mfd",
+                    "contentName": "string.unquoted.text",
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
@@ -49,14 +49,14 @@
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Contributor)(?:(-)(?:(ORCID|Association|Role|Email)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Paper_Copy)(?:(-)(?:(Note|Link|PMID|DOI)|(\\S+)))?\\s+",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token.mfd"},
-                        "2": {"name": "keyword.control.token-seperator.mfd"},
-                        "3": {"name": "constant.language.minor-token.mfd"}
+                        "1": {"name": "constant.language.major-token"},
+                        "2": {"name": "keyword.control.token-seperator"},
+                        "3": {"name": "constant.language.minor-token"}
                     },
-                    "contentName": "string.unquoted.text.mfd",
+                    "contentName": "string.unquoted.text",
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
@@ -64,14 +64,29 @@
                     ]
                 },
                 {
-                    "begin": "(?<=^@)((?:Data_Primary)|(?:Data_Copy)|(?:Data_Ref)|Data)(?:(-)(?:(Type|Path|Destination|URI)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Paper_Primary)(?:(-)(?:(Note|Link|PMID|DOI)|(\\S+)))?\\s+",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token.mfd"},
-                        "2": {"name": "keyword.control.token-seperator.mfd"},
-                        "3": {"name": "constant.language.minor-token.mfd"}
+                        "1": {"name": "constant.language.major-token"},
+                        "2": {"name": "keyword.control.token-seperator"},
+                        "3": {"name": "constant.language.minor-token"}
                     },
-                    "contentName": "string.unquoted.text.mfd",
+                    "contentName": "string.unquoted.text",
+                    "patterns": [
+                        {"include": "#macro-use"},
+                        {"include": "#latex"},
+                        {"include": "#template"}
+                    ]
+                },
+                {
+                    "begin": "(?<=^@)(Journal)(?:(-)(?:(Note|Volume|Issue|Pages)|(\\S+)))?\\s+",
+                    "end": "\\S?(?=^@|^`@|^#)",
+                    "beginCaptures": {
+                        "1": {"name": "constant.language.major-token"},
+                        "2": {"name": "keyword.control.token-seperator"},
+                        "3": {"name": "constant.language.minor-token"}
+                    },
+                    "contentName": "string.unquoted.text",
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
@@ -82,11 +97,11 @@
                     "begin": "(?<=^@)(Date)(?:(-)(?:(Note)|(\\S+)))?\\s+",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token.mfd"},
-                        "2": {"name": "keyword.control.token-seperator.mfd"},
-                        "3": {"name": "constant.language.minor-token.mfd"}
+                        "1": {"name": "constant.language.major-token"},
+                        "2": {"name": "keyword.control.token-seperator"},
+                        "3": {"name": "constant.language.minor-token"}
                     },
-                    "contentName": "string.unquoted.text.mfd",
+                    "contentName": "string.unquoted.text",
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
@@ -94,14 +109,14 @@
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Expedition)(?:(-)(?:(ShipName|CruseID|MooringID|DiveNumber|Synonyms)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Contributor)(?:(-)(?:(Note|ORCID|Association|Role|Email)|(\\S+)))?\\s+",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token.mfd"},
-                        "2": {"name": "keyword.control.token-seperator.mfd"},
-                        "3": {"name": "constant.language.minor-token.mfd"}
+                        "1": {"name": "constant.language.major-token"},
+                        "2": {"name": "keyword.control.token-seperator"},
+                        "3": {"name": "constant.language.minor-token"}
                     },
-                    "contentName": "string.unquoted.text.mfd",
+                    "contentName": "string.unquoted.text",
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
@@ -109,14 +124,14 @@
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(File)(?:(-)(?:(Path|Destination|URI)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Funding)(?:(-)(?:(Note|ID)|(\\S+)))?\\s+",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token.mfd"},
-                        "2": {"name": "keyword.control.token-seperator.mfd"},
-                        "3": {"name": "constant.language.minor-token.mfd"}
+                        "1": {"name": "constant.language.major-token"},
+                        "2": {"name": "keyword.control.token-seperator"},
+                        "3": {"name": "constant.language.minor-token"}
                     },
-                    "contentName": "string.unquoted.text.mfd",
+                    "contentName": "string.unquoted.text",
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
@@ -124,14 +139,14 @@
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Funding)(?:(-)(?:(ID)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Keyword)(?:(-)(?:(Note)|(\\S+)))?\\s+",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token.mfd"},
-                        "2": {"name": "keyword.control.token-seperator.mfd"},
-                        "3": {"name": "constant.language.minor-token.mfd"}
+                        "1": {"name": "constant.language.major-token"},
+                        "2": {"name": "keyword.control.token-seperator"},
+                        "3": {"name": "constant.language.minor-token"}
                     },
-                    "contentName": "string.unquoted.text.mfd",
+                    "contentName": "string.unquoted.text",
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
@@ -139,14 +154,14 @@
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Jounral)(?:(-)(?:(Volume|Issue|Pages)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Species)(?:(-)(?:(Note|Loc|ReefCollection|Cultured|CultureCollection)|(\\S+)))?\\s+",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token.mfd"},
-                        "2": {"name": "keyword.control.token-seperator.mfd"},
-                        "3": {"name": "constant.language.minor-token.mfd"}
+                        "1": {"name": "constant.language.major-token"},
+                        "2": {"name": "keyword.control.token-seperator"},
+                        "3": {"name": "constant.language.minor-token"}
                     },
-                    "contentName": "string.unquoted.text.mfd",
+                    "contentName": "string.unquoted.text",
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
@@ -154,13 +169,14 @@
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Keyword)(?:(-)(?:\\S+))?\\s+",
+                    "begin": "(?<=^@)(Method)(?:(-)(?:(Note|Type|Company|Sample)|(\\S+)))?\\s+",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token.mfd"},
-                        "2": {"name": "keyword.control.token-seperator.mfd"}
+                        "1": {"name": "constant.language.major-token"},
+                        "2": {"name": "keyword.control.token-seperator"},
+                        "3": {"name": "constant.language.minor-token"}
                     },
-                    "contentName": "string.unquoted.text.mfd",
+                    "contentName": "string.unquoted.text",
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
@@ -168,14 +184,14 @@
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(MEDFORD)(?:(-)(?:(Version)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Software_Ref)(?:(-)(?:(Note|URI|Filename|Type|Version)|(\\S+)))?\\s+",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token.mfd"},
-                        "2": {"name": "keyword.control.token-seperator.mfd"},
-                        "3": {"name": "constant.language.minor-token.mfd"}
+                        "1": {"name": "constant.language.major-token"},
+                        "2": {"name": "keyword.control.token-seperator"},
+                        "3": {"name": "constant.language.minor-token"}
                     },
-                    "contentName": "string.unquoted.text.mfd",
+                    "contentName": "string.unquoted.text",
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
@@ -183,14 +199,14 @@
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Method)(?:(-)(?:(Type|Company|Sample)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Software_Copy)(?:(-)(?:(Note|Path|Destination|Type|Version)|(\\S+)))?\\s+",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token.mfd"},
-                        "2": {"name": "keyword.control.token-seperator.mfd"},
-                        "3": {"name": "constant.language.minor-token.mfd"}
+                        "1": {"name": "constant.language.major-token"},
+                        "2": {"name": "keyword.control.token-seperator"},
+                        "3": {"name": "constant.language.minor-token"}
                     },
-                    "contentName": "string.unquoted.text.mfd",
+                    "contentName": "string.unquoted.text",
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
@@ -198,14 +214,14 @@
                     ]
                 },
                 {
-                    "begin": "(?<=^@)((?:Paper_Primary)|(?:Paper_Copy)|(?:Paper_Ref)|Paper)(?:(-)(?:(Link|PMID|DOI)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Software_Primary)(?:(-)(?:(Note|Path|Destination|Type|Version)|(\\S+)))?\\s+",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token.mfd"},
-                        "2": {"name": "keyword.control.token-seperator.mfd"},
-                        "3": {"name": "constant.language.minor-token.mfd"}
+                        "1": {"name": "constant.language.major-token"},
+                        "2": {"name": "keyword.control.token-seperator"},
+                        "3": {"name": "constant.language.minor-token"}
                     },
-                    "contentName": "string.unquoted.text.mfd",
+                    "contentName": "string.unquoted.text",
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
@@ -213,14 +229,14 @@
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Software)(?:(-)(?:(Type|Version)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Data_Ref)(?:(-)(?:(Note|URI|Filename|Type)|(\\S+)))?\\s+",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token.mfd"},
-                        "2": {"name": "keyword.control.token-seperator.mfd"},
-                        "3": {"name": "constant.language.minor-token.mfd"}
+                        "1": {"name": "constant.language.major-token"},
+                        "2": {"name": "keyword.control.token-seperator"},
+                        "3": {"name": "constant.language.minor-token"}
                     },
-                    "contentName": "string.unquoted.text.mfd",
+                    "contentName": "string.unquoted.text",
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
@@ -228,14 +244,14 @@
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Species)(?:(-)(?:(Loc|ReefCollection|Cultured|CultureCollection)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Data_Copy)(?:(-)(?:(Note|Path|Destination|Type)|(\\S+)))?\\s+",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token.mfd"},
-                        "2": {"name": "keyword.control.token-seperator.mfd"},
-                        "3": {"name": "constant.language.minor-token.mfd"}
+                        "1": {"name": "constant.language.major-token"},
+                        "2": {"name": "keyword.control.token-seperator"},
+                        "3": {"name": "constant.language.minor-token"}
                     },
-                    "contentName": "string.unquoted.text.mfd",
+                    "contentName": "string.unquoted.text",
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
@@ -243,13 +259,29 @@
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Version)(?:(-)(?:\\S+))?\\s+",
+                    "begin": "(?<=^@)(Data_Primary)(?:(-)(?:(Note|Path|Destination|Type)|(\\S+)))?\\s+",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token.mfd"},
-                        "2": {"name": "keyword.control.token-seperator.mfd"}
+                        "1": {"name": "constant.language.major-token"},
+                        "2": {"name": "keyword.control.token-seperator"},
+                        "3": {"name": "constant.language.minor-token"}
                     },
-                    "contentName": "string.unquoted.text.mfd",
+                    "contentName": "string.unquoted.text",
+                    "patterns": [
+                        {"include": "#macro-use"},
+                        {"include": "#latex"},
+                        {"include": "#template"}
+                    ]
+                },
+                {
+                    "begin": "(?<=^@)(File)(?:(-)(?:(Note|Path|Destination|URI)|(\\S+)))?\\s+",
+                    "end": "\\S?(?=^@|^`@|^#)",
+                    "beginCaptures": {
+                        "1": {"name": "constant.language.major-token"},
+                        "2": {"name": "keyword.control.token-seperator"},
+                        "3": {"name": "constant.language.minor-token"}
+                    },
+                    "contentName": "string.unquoted.text",
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},

@@ -3,6 +3,8 @@
 An implementation of the Language Server Protocol to provide editor support for
 the MEDFORD metadata markup language.
 
+LTRS
+
 <!-- 
 ## Python Dependencies:
 * [pygls](https://pypi.org/project/pygls/)
