@@ -1,15 +1,32 @@
 # medford-vscode
 
 An implementation of the Language Server Protocol to provide editor support for
-the MEDFORD metadata markup language.
+the MEDFORD metadata markup language. The server will be started automatically when a MEDFORD document (ending in `.mfd`) is opened.
 
-Features included:
-- Completions
-- Syntax Highlighting
-- Syntax Error Checking
-- Semantic Validation
+## Features:
 
-LTRS
+- Syntactic validation
+- Semantic validation
+- Autocomplete for major tokens and expected minor tokens
+- Autocomplete for preveiously defined macros
+- Syntax highlighting
+
+## Requirements:
+
+Python (3.8 or newer) must be installed on your system and VS Code must have access to the Python interpreter.
+
+Python dependencies should be automatically installed. If there are issues,
+try installing [pygls](https://github.com/openlawlibrary/pygls) manually on the configured python environment using `pip install pygls`.
+
+The [language server](https://github.com/liam-strand/medford-language-server) and [medford parser](https://github.com/TuftsBCB/medford) are bundled with this extension and do not need to be installed seperately.
+
+## Extension Settings:
+
+There are no user-configurable settings at this time. If you'd like one added, feel free to open an issue in the [github repository](https://github.com/liam-strand/medford-vscode) for this extension.
+
+## Contributors:
+- [Liam Strand](https://github.com/liam-strand)
+- [Andrew Powers](https://github.com/andrew-powers)
 
 <!-- 
 ## Python Dependencies:

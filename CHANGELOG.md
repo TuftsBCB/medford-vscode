@@ -2,8 +2,14 @@
 
 All notable changes to the "medford-vscode" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 ## [Unreleased]
 
-- Initial release
+## [0.1.0] - 2022-07-22
+### Added
+- Syntax Highlighting
+- Autocomplete for previously defined macros
+- Autocomplete for expected major tokens
+- Autocomplete for expected minor tokens
+- Syntactic validation
+- Semantic validation
