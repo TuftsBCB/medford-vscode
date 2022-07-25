@@ -14,19 +14,21 @@ arbitrary files and put them into a bag. A MEDFORD file can also be translated
 into other formats, such as the BCODMO submission format.
 @Paper_Primary-DOI 2022-06-14 
 
-@UserDefinedMajorToken description
-@UserDefinedMajorToken-words burn it to the ground!
 
 `@more fun ames Hello World 
+
 `@thisisamacro woah macros
+@UserDefinedMajorToken description
 `@whaosh micor space hellooooo
+
 `@theworldwillknow what you did
+`@tufts tony's house
 
 @MEDFORD MEDFORD
 @MEDFORD-Version 1.0
 
 @Data_Primary `@thisisamacro yeaaah
-@Data_Primary-Path ./example.mfd.JSON 
+@Data_Primary-Path ./example.mfd.JSON  
 # comments comments
 
 @Contributor Liam Strand
@@ -35,17 +37,25 @@ into other formats, such as the BCODMO submission format.
 @Data_Primary words `@{location}
 @Data_Primary-Path stuff
 
-
 @Data_Ref `@location wordssssdasds qoikljfne qlkjne pweooilkg lwkne iklw
 @Data_Ref-URI https://www.google.com
 @Data_Ref-Filename another file
+
+@Contributor Tony Monaco
+@Contributor-Role President
+
+@Species Human
+@Species-CultureCollection polina
+@Species-Cultured yesterday
+@Species-Loc over there
+@Species-ReefCollection JCC 372
 
 @Contributor Polina Shpilker
 @Contributor-Association Department of Comp`@{theworldwillknow}uter  
 Science, Tufts University, 1XX College Ave, 02155, MA, USA
 @Contributor-Role First Author stuff`@{more}stuff
 @Contributor-Role Corresponding Author fewjfkenqfk kqwerfjeqkfbq kqehfb 
-@Contributor-Email polina.shpilker@tufts.edu 
+@Contributor-Email polina.shpilker@tufts.edu `@whaosh
 
 @File something
 @File-Path "/comp/11/gscope/bin"
@@ -67,7 +77,7 @@ Science, Tufts University, 1XX College Ave, 02155, MA, USA
 @Contributor Jill Ashey
 @Contributor-Association Department of Biological Sciences, University of 
 Rhode Island, Street, Postcode, RI, USA
-@Contributor-Role Author
+@Contributor-Role Author 
 
 @Contributor Jay-Miguel Fonticella
 @Contributor-Association Department of Computer Science, Tufts University, 
@@ -106,8 +116,3 @@ University of Rhode Island, Street, Postcode, RI, USA
 @Software_Ref-Type language parser
 @Software_Ref-URI https://github.com/TuftsBCB/MEDFORD
 
-@Paper_Primary Straight up nonsense
-@Paper_Primary-Link https://www.nytimes.com
-
-@Date 2022-7-11
-@Date-Note something

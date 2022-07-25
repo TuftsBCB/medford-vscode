@@ -9,7 +9,7 @@
         "type": "git",
         "directory": "https://github.com/liam-strand/medford-vscode.git"
     },
-    "version": "0.0.8",
+    "version": "0.1.0",
     "engines": {
         "vscode": "^1.68.0"
     },
@@ -40,14 +40,7 @@
                 "path": "./syntaxes/mfd.tmLanguage.json"
             }
         ],
-        "commands": [],
-        "configuration": {
-            "type": "object",
-            "title": "medfordServer",
-            "properties": {
-                
-            }
-        }
+        "commands": []
     },
     "main": "./client/out/extension",
     "scripts": {
