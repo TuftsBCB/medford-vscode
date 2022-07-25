@@ -9,7 +9,7 @@
         "type": "git",
         "directory": "https://github.com/liam-strand/medford-vscode.git"
     },
-    "version": "0.1.0",
+    "version": "0.1.1",
     "engines": {
         "vscode": "^1.68.0"
     },
@@ -40,7 +40,27 @@
                 "path": "./syntaxes/mfd.tmLanguage.json"
             }
         ],
-        "commands": []
+        "commands": [],
+        "configuration": {
+            "type": "object",
+            "title": "medfordServer",
+            "properties": {}
+        },
+        "walkthroughs": [
+            {
+                "id": "introtomedford",
+                "title": "MEDFORD Introduction",
+                "description": "A brief introduction to the MEDFORD Metadata Markup Language",
+                "steps": [
+                    {
+                        "id": "findspec",
+                        "title": "Find the MEDFORD language specification",
+                        "description": "ahahahaa!!",
+                        "media": {}
+                    }
+                ]
+            }
+        ]
     },
     "main": "./client/out/extension",
     "scripts": {
