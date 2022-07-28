@@ -30,7 +30,11 @@
                 "extensions": [
                     ".mfd"
                 ],
-                "configuration": "./language-configuration.json"
+                "configuration": "./language-configuration.json",
+                "icon": {
+                    "light": "./assets/icons/mfd-icon-light.png",
+                    "dark": "./assets/icons/mfd-icon-dark.png"
+                }
             }
         ],
         "grammars": [
