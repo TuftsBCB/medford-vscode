@@ -38,7 +38,8 @@ FILE_BOTTOM = r"""                {
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 }
             ]

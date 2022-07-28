@@ -28,8 +28,7 @@ into other formats, such as the BCODMO submission format.
 @MEDFORD-Version 1.0
 
 @Data_Primary `@thisisamacro yeaaah
-@Data_Primary-Path ./example.mfd.JSON  
-# comments comments
+@Data_Primary-Path ./example.mfd
 
 @Contributor Liam Strand
 
