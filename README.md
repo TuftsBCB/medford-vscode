@@ -1,7 +1,6 @@
 # medford-vscode
 
-An implementation of the Language Server Protocol to provide editor support for
-the MEDFORD metadata markup language. The server will be started automatically when a MEDFORD document (ending in `.mfd`) is opened.
+An implementation of the Language Server Protocol to provide editor support for the MEDFORD metadata markup language. The server will be started automatically when a MEDFORD document (ending in `.mfd`) is opened.
 
 ## Features:
 
@@ -10,6 +9,7 @@ the MEDFORD metadata markup language. The server will be started automatically w
 - Autocomplete for major tokens and expected minor tokens
 - Autocomplete for preveiously defined macros
 - Syntax highlighting
+- File icons!
 
 ## Requirements:
 
@@ -22,7 +22,11 @@ The [language server](https://github.com/liam-strand/medford-language-server) an
 
 ## Extension Settings:
 
-There are no user-configurable settings at this time. If you'd like one added, feel free to open an issue in the [github repository](https://github.com/liam-strand/medford-vscode) for this extension.
+There are no user-configurable settings at this time. If you'd like one added, please let us know.
+
+## Issues:
+
+This software is in ***beta***! If you run into an issue with the user-interface, please open an issue in the [extension repository](https://github.com/liam-strand/medford-vscode). If you run into an issue with error messages or autocomplete, please open an issue in the [language server repository](https://github.com/liam-strand/medford-language-server). Also, feel free to email us if you have any questions or concerns!
 
 ## Contributors:
 - [Liam Strand](https://github.com/liam-strand)

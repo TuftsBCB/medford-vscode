@@ -2,13 +2,17 @@
     "scopeName": "source.mfd",
     "patterns": [
         {"include": "#metadata"},
-        {"include": "#comment"},
+        {"include": "#full-line-comment"},
         {"include": "#macro-def"}
     ],
     "repository": {
-        "comment": {
+        "full-line-comment": {
             "name": "comment.line.number-sign.mfd",
-            "match": "#.*$"
+            "match": "^#.*$"
+        },
+        "comment": {
+            "name": "comment.inline.number-sign.mfd",
+            "match": "# .*$"
         },
         "metadata": {
             "begin": "(^@)",
@@ -30,7 +34,8 @@
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 },
                 {
@@ -45,7 +50,8 @@
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 },
                 {
@@ -60,7 +66,8 @@
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 },
                 {
@@ -75,7 +82,8 @@
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 },
                 {
@@ -90,7 +98,8 @@
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 },
                 {
@@ -105,7 +114,8 @@
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 },
                 {
@@ -120,7 +130,8 @@
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 },
                 {
@@ -135,7 +146,8 @@
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 },
                 {
@@ -150,7 +162,8 @@
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 },
                 {
@@ -165,7 +178,8 @@
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 },
                 {
@@ -180,7 +194,8 @@
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 },
                 {
@@ -195,7 +210,8 @@
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 },
                 {
@@ -210,7 +226,8 @@
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 },
                 {
@@ -225,7 +242,8 @@
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 },
                 {
@@ -240,7 +258,8 @@
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 },
                 {
@@ -255,7 +274,8 @@
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 },
                 {
@@ -270,7 +290,8 @@
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 },
                 {
@@ -285,7 +306,8 @@
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 },
                 {
@@ -298,7 +320,8 @@
                     "patterns": [
                         {"include": "#macro-use"},
                         {"include": "#latex"},
-                        {"include": "#template"}
+                        {"include": "#template"},
+                        {"include": "#comment"}
                     ]
                 }
             ]
