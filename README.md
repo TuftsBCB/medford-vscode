@@ -9,6 +9,7 @@ An implementation of the Language Server Protocol to provide editor support for 
 - Autocomplete for major tokens and expected minor tokens
 - Autocomplete for preveiously defined macros
 - Syntax highlighting
+- File icons!
 
 ## Requirements:
 
