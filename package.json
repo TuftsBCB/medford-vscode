@@ -9,7 +9,7 @@
         "type": "git",
         "directory": "https://github.com/liam-strand/medford-vscode.git"
     },
-    "version": "0.1.1",
+    "version": "0.1.3",
     "engines": {
         "vscode": "^1.68.0"
     },
@@ -53,14 +53,15 @@
         "walkthroughs": [
             {
                 "id": "introtomedford",
-                "title": "MEDFORD Introduction",
+                "title": "Getting started with MEDFORD",
                 "description": "A brief introduction to the MEDFORD Metadata Markup Language",
                 "steps": [
                     {
-                        "id": "findspec",
-                        "title": "Find the MEDFORD language specification",
-                        "description": "ahahahaa!!",
-                        "media": {}
+                        "id": "openmedford",
+                        "title": "Create your first MEDFORD file",
+                        "description": "Create a file with name `example.mfd`.",
+                        "media": {"markdown": "./assets/walkthrough/1_openmedford.md"},
+                        "completionEvents": ["onLanguage:medford"]
                     }
                 ]
             }

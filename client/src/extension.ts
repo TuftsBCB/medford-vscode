@@ -58,6 +58,16 @@ function installDependencies(pythonPath: string): void {
     }
 }
 
+function checkPython(): boolean {
+    try {
+        cp.execSync("python3 --version");
+        return true;
+    } catch (e) {
+        window.showErrorMessage("No valid python3 installation found");
+        return false;
+    }
+}
+
 function connectToLangServerTCP(addr: number): LanguageClient {
     const serverOptions: ServerOptions = () => {
         return new Promise((resolve /* , reject */) => {
@@ -99,12 +109,23 @@ export function activate(context: ExtensionContext): void {
     } else {
         // Production - Client is going to run the server (for use within `.vsix` package)
         const cwd = path.join(__dirname, "..", "..", "medford-language-server");
-        const pythonPath = workspace
+        let pythonPath = workspace
             .getConfiguration("python")
             .get<string>("pythonPath");
 
         if (!pythonPath) {
-            throw new Error("python.pythonPath` is not set");
+            pythonPath = workspace
+                .getConfiguration("python")
+                .get<string>("defaultInterpreterPath");
+            if (!pythonPath) {
+                if (checkPython()) {
+                    pythonPath = "python3";
+                    window.showWarningMessage("neither python.pythonPath nor python.defaultInterpreterPath were set. using default \"python3\" instead.")
+                } else {
+                    window.showErrorMessage("could not find a python interpreter")
+                    throw new Error("python.pythonPath` is not set");
+                }
+            }
         }
         
         // Check that the mfdls server exists. If it doesn't, try to install it
