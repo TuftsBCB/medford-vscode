@@ -45,6 +45,7 @@ into other formats, such as the BCODMO submission format.
 
 @Contributor Tony Monaco
 @Contributor-Role President
+@Contributor-Location Gifford House
 
 @Species Human
 @Species-CultureCollection polina
@@ -57,8 +58,8 @@ into other formats, such as the BCODMO submission format.
 Science, Tufts University, 1XX College Ave, 02155, MA, USA
 @Contributor-Role First Author stuff`@{more}stuff
 @Contributor-Role Corresponding Author fewjfkenqfk kqwerfjeqkfbq kqehfb 
-@Contributor-Email polina.shpilker@tufts.edu `@whaosh
-
+@Contributor-Email polina.shpilker@tufts.edu `@whaosh `@thisisamacro
+ 
 @File something
 @File-Path "/comp/11/gscope/bin"
 

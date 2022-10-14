@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import sys
-import os
 from typing import Dict, List
 
 from mfdls.medford_tokens import get_available_tokens
@@ -28,7 +27,7 @@ FILE_TOP = r"""{
             "patterns": [
 """
 
-FILE_BOTTOM = r"""                {
+GENERIC_MAJOR = r"""                {
                     "begin": "(?<=^@)(?:[^\\s-]+)(?:(-)(\\S+))?\\s+",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
@@ -36,12 +35,35 @@ FILE_BOTTOM = r"""                {
                     },
                     "contentName": "string.unquoted.text.mfd",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#~::minors"}
                     ]
                 }
+            ]
+        },
+"""
+
+
+GENERIC_MINOR = r"""        "~::minors": {
+            "begin": "(-)(?:(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+"""
+
+FILE_BOTTOM = r"""        "major-desc": {
+            "begin": "\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
             ]
         },
         "macro-def": {
@@ -85,6 +107,14 @@ FILE_BOTTOM = r"""                {
             "endCaptures": {"1": {"name": "keyword.control.endlatex.mfd"}},
             "contentName": "meta.latexblock.mfd",
             "patterns": [{"include": "text.tex.latex"}]
+        },
+        "data": {
+            "patterns": [
+                {"include": "#macro-use"},
+                {"include": "#latex"},
+                {"include": "#template"},
+                {"include": "#comment"}
+            ]
         }
     }
 }
@@ -96,47 +126,61 @@ def main(path: str):
 
     with open(path, "w") as f:
         f.write(FILE_TOP)
+        for major in tokens.keys():
+            f.write(generate_major(major))
+        f.write(GENERIC_MAJOR)
         for major, minors in tokens.items():
-            f.write(generate_regex(major, minors))
+            f.write(generate_minor(major, minors))
+        f.write(GENERIC_MINOR)
+        f.write(generate_linker(list(tokens.keys())))
         f.write(FILE_BOTTOM)
 
 
-def generate_regex(major: str, minors: List[str]) -> str:
-    if minors:
-        regex_string = f"""                {{
-                    "begin": "(?<=^@)({major})(?:(-)(?:({"|".join(minors)})|(\\\\S+)))?\\\\s+",
+def generate_major(major: str) -> str:
+    return f"""                {{
+                    "begin": "(?<=^@)({major})",
                     "end": "\\\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {{
-                        "1": {{"name": "constant.language.major-token"}},
-                        "2": {{"name": "keyword.control.token-seperator"}},
-                        "3": {{"name": "constant.language.minor-token"}}
+                        "1": {{"name": "constant.language.major-token"}}
                     }},
-                    "contentName": "string.unquoted.text",
                     "patterns": [
-                        {{"include": "#macro-use"}},
-                        {{"include": "#latex"}},
-                        {{"include": "#template"}}
+                        {{"include": "#major-desc"}},
+                        {{"include": "#linking-token"}},
+                        {{"include": "#{major}::minors"}}
                     ]
                 }},
 """
-    else:
-        regex_string = f"""                {{
-                    "begin": "(?<=^@)({major})(?:(-)(?:\\\\S+))?\\\\s+",
-                    "end": "\\\\S?(?=^@|^`@|^#)",
-                    "beginCaptures": {{
-                        "1": {{"name": "constant.language.major-token"}},
-                        "2": {{"name": "keyword.control.token-seperator"}}
-                    }},
-                    "contentName": "string.unquoted.text",
-                    "patterns": [
-                        {{"include": "#macro-use"}},
-                        {{"include": "#latex"}},
-                        {{"include": "#template"}}
-                    ]
-                }},
+
+def generate_minor(major: str, minors: List[str]) -> str:
+    return f"""        "{major}::minors": {{
+            "begin": "(-)(?:({"|".join(minors)})|(?:\\\\S+))?\\\\s+",
+            "end": "\\\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {{
+                "1": {{"name": "keyword.control.token-seperator"}},
+                "2": {{"name": "constant.language.minor-token"}}
+            }},
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {{"include": "#data"}}
+            ]
+        }},
 """
-    
-    return regex_string
+def generate_linker(majors: List[str]) -> str:
+    return f"""        "linking-token": {{
+            "begin": "(-)(@)(?:({"|".join(majors)})|(\\\\S+))?\\\\s+",
+            "end": "\\\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {{
+                "1": {{"name": "keyword.control.token-seperator"}},
+                "2": {{"name": "keyword.control.linking-token"}},
+                "3": {{"name": "support.variable.linking-major"}}
+            }},
+            "contentName": "support.variable.linking-value",
+            "patterns": [
+                {{"include": "#data"}}
+            ]
+        }},
+"""
+
 
 if __name__ == "__main__":
     main(sys.argv[1])

@@ -24,7 +24,7 @@ import * as cp from "child_process";
 
 let client: LanguageClient;
 
-const DEBUG_CLIENT = false;
+const DEBUG_CLIENT = true;
 
 function getClientOptions(): LanguageClientOptions {
     return {
@@ -103,7 +103,7 @@ function startLangServer(
 }
 
 export function activate(context: ExtensionContext): void {
-    if (context.extensionMode === ExtensionMode.Development && !DEBUG_CLIENT) {
+    if ((context.extensionMode === ExtensionMode.Development) && !DEBUG_CLIENT) {
         // Development - Run the server manually
         client = connectToLangServerTCP(2087);
     } else {

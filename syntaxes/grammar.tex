@@ -36,6 +36,8 @@ terminated by (\ttt{\#} | \ttt{@} | \ttt{\`{}@})
 \alt <data-prov-token>
 \alt <string-literal>
 
+<linking-token> ::= \ttt{@}<major-token> <text>
+
 <metadata> ::= \ttt{@} <major-token> \ttt{-} <minor-token> <whitespace> <text>
 
 <statement> ::= <metadata>
@@ -52,6 +54,7 @@ terminated by (\ttt{\#} | \ttt{@} | \ttt{\`{}@})
 Notes: 
 \begin{itemize}
     \item \textit{\(<\)string-literal\(>\)} excludes whitespace
+    \item \textit{\(<\)linking-token\(>\)} must reference a major token that exists
 \end{itemize}
 
 % \paragraph{Increase the two lengths}

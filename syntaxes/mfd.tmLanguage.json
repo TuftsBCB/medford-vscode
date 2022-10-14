@@ -2,17 +2,13 @@
     "scopeName": "source.mfd",
     "patterns": [
         {"include": "#metadata"},
-        {"include": "#full-line-comment"},
+        {"include": "#comment"},
         {"include": "#macro-def"}
     ],
     "repository": {
-        "full-line-comment": {
-            "name": "comment.line.number-sign.mfd",
-            "match": "^#.*$"
-        },
         "comment": {
-            "name": "comment.inline.number-sign.mfd",
-            "match": "# .*$"
+            "name": "comment.line.number-sign.mfd",
+            "match": "#.*$"
         },
         "metadata": {
             "begin": "(^@)",
@@ -23,291 +19,219 @@
             "contentName": "meta.metadata.mfd",
             "patterns": [
                 {
-                    "begin": "(?<=^@)(MEDFORD)(?:(-)(?:(Version)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(MEDFORD)",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token"},
-                        "2": {"name": "keyword.control.token-seperator"},
-                        "3": {"name": "constant.language.minor-token"}
+                        "1": {"name": "constant.language.major-token"}
                     },
-                    "contentName": "string.unquoted.text",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#MEDFORD::minors"}
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Paper_Ref)(?:(-)(?:(Note|URI|Filename|Link|PMID|DOI)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Paper_Ref)",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token"},
-                        "2": {"name": "keyword.control.token-seperator"},
-                        "3": {"name": "constant.language.minor-token"}
+                        "1": {"name": "constant.language.major-token"}
                     },
-                    "contentName": "string.unquoted.text",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#Paper_Ref::minors"}
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Paper_Copy)(?:(-)(?:(Note|Link|PMID|DOI)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Paper_Copy)",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token"},
-                        "2": {"name": "keyword.control.token-seperator"},
-                        "3": {"name": "constant.language.minor-token"}
+                        "1": {"name": "constant.language.major-token"}
                     },
-                    "contentName": "string.unquoted.text",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#Paper_Copy::minors"}
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Paper_Primary)(?:(-)(?:(Note|Link|PMID|DOI)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Paper_Primary)",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token"},
-                        "2": {"name": "keyword.control.token-seperator"},
-                        "3": {"name": "constant.language.minor-token"}
+                        "1": {"name": "constant.language.major-token"}
                     },
-                    "contentName": "string.unquoted.text",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#Paper_Primary::minors"}
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Journal)(?:(-)(?:(Note|Volume|Issue|Pages)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Journal)",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token"},
-                        "2": {"name": "keyword.control.token-seperator"},
-                        "3": {"name": "constant.language.minor-token"}
+                        "1": {"name": "constant.language.major-token"}
                     },
-                    "contentName": "string.unquoted.text",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#Journal::minors"}
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Date)(?:(-)(?:(Note)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Date)",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token"},
-                        "2": {"name": "keyword.control.token-seperator"},
-                        "3": {"name": "constant.language.minor-token"}
+                        "1": {"name": "constant.language.major-token"}
                     },
-                    "contentName": "string.unquoted.text",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#Date::minors"}
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Contributor)(?:(-)(?:(Note|ORCID|Association|Role|Email)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Contributor)",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token"},
-                        "2": {"name": "keyword.control.token-seperator"},
-                        "3": {"name": "constant.language.minor-token"}
+                        "1": {"name": "constant.language.major-token"}
                     },
-                    "contentName": "string.unquoted.text",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#Contributor::minors"}
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Funding)(?:(-)(?:(Note|ID)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Funding)",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token"},
-                        "2": {"name": "keyword.control.token-seperator"},
-                        "3": {"name": "constant.language.minor-token"}
+                        "1": {"name": "constant.language.major-token"}
                     },
-                    "contentName": "string.unquoted.text",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#Funding::minors"}
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Keyword)(?:(-)(?:(Note)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Keyword)",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token"},
-                        "2": {"name": "keyword.control.token-seperator"},
-                        "3": {"name": "constant.language.minor-token"}
+                        "1": {"name": "constant.language.major-token"}
                     },
-                    "contentName": "string.unquoted.text",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#Keyword::minors"}
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Species)(?:(-)(?:(Note|Loc|ReefCollection|Cultured|CultureCollection)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Species)",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token"},
-                        "2": {"name": "keyword.control.token-seperator"},
-                        "3": {"name": "constant.language.minor-token"}
+                        "1": {"name": "constant.language.major-token"}
                     },
-                    "contentName": "string.unquoted.text",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#Species::minors"}
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Method)(?:(-)(?:(Note|Type|Company|Sample)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Method)",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token"},
-                        "2": {"name": "keyword.control.token-seperator"},
-                        "3": {"name": "constant.language.minor-token"}
+                        "1": {"name": "constant.language.major-token"}
                     },
-                    "contentName": "string.unquoted.text",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#Method::minors"}
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Software_Ref)(?:(-)(?:(Note|URI|Filename|Type|Version)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Software_Ref)",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token"},
-                        "2": {"name": "keyword.control.token-seperator"},
-                        "3": {"name": "constant.language.minor-token"}
+                        "1": {"name": "constant.language.major-token"}
                     },
-                    "contentName": "string.unquoted.text",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#Software_Ref::minors"}
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Software_Copy)(?:(-)(?:(Note|Path|Destination|Type|Version)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Software_Copy)",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token"},
-                        "2": {"name": "keyword.control.token-seperator"},
-                        "3": {"name": "constant.language.minor-token"}
+                        "1": {"name": "constant.language.major-token"}
                     },
-                    "contentName": "string.unquoted.text",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#Software_Copy::minors"}
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Software_Primary)(?:(-)(?:(Note|Path|Destination|Type|Version)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Software_Primary)",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token"},
-                        "2": {"name": "keyword.control.token-seperator"},
-                        "3": {"name": "constant.language.minor-token"}
+                        "1": {"name": "constant.language.major-token"}
                     },
-                    "contentName": "string.unquoted.text",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#Software_Primary::minors"}
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Data_Ref)(?:(-)(?:(Note|URI|Filename|Type)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Data_Ref)",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token"},
-                        "2": {"name": "keyword.control.token-seperator"},
-                        "3": {"name": "constant.language.minor-token"}
+                        "1": {"name": "constant.language.major-token"}
                     },
-                    "contentName": "string.unquoted.text",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#Data_Ref::minors"}
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Data_Copy)(?:(-)(?:(Note|Path|Destination|Type)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Data_Copy)",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token"},
-                        "2": {"name": "keyword.control.token-seperator"},
-                        "3": {"name": "constant.language.minor-token"}
+                        "1": {"name": "constant.language.major-token"}
                     },
-                    "contentName": "string.unquoted.text",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#Data_Copy::minors"}
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(Data_Primary)(?:(-)(?:(Note|Path|Destination|Type)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(Data_Primary)",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token"},
-                        "2": {"name": "keyword.control.token-seperator"},
-                        "3": {"name": "constant.language.minor-token"}
+                        "1": {"name": "constant.language.major-token"}
                     },
-                    "contentName": "string.unquoted.text",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#Data_Primary::minors"}
                     ]
                 },
                 {
-                    "begin": "(?<=^@)(File)(?:(-)(?:(Note|Path|Destination|URI)|(\\S+)))?\\s+",
+                    "begin": "(?<=^@)(File)",
                     "end": "\\S?(?=^@|^`@|^#)",
                     "beginCaptures": {
-                        "1": {"name": "constant.language.major-token"},
-                        "2": {"name": "keyword.control.token-seperator"},
-                        "3": {"name": "constant.language.minor-token"}
+                        "1": {"name": "constant.language.major-token"}
                     },
-                    "contentName": "string.unquoted.text",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#File::minors"}
                     ]
                 },
                 {
@@ -318,12 +242,259 @@
                     },
                     "contentName": "string.unquoted.text.mfd",
                     "patterns": [
-                        {"include": "#macro-use"},
-                        {"include": "#latex"},
-                        {"include": "#template"},
-                        {"include": "#comment"}
+                        {"include": "#major-desc"},
+                        {"include": "#linking-token"},
+                        {"include": "#~::minors"}
                     ]
                 }
+            ]
+        },
+        "MEDFORD::minors": {
+            "begin": "(-)(?:(Version)|(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"},
+                "2": {"name": "constant.language.minor-token"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "Paper_Ref::minors": {
+            "begin": "(-)(?:(Note|URI|Filename|Link|PMID|DOI)|(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"},
+                "2": {"name": "constant.language.minor-token"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "Paper_Copy::minors": {
+            "begin": "(-)(?:(Note|Link|PMID|DOI)|(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"},
+                "2": {"name": "constant.language.minor-token"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "Paper_Primary::minors": {
+            "begin": "(-)(?:(Note|Link|PMID|DOI)|(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"},
+                "2": {"name": "constant.language.minor-token"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "Journal::minors": {
+            "begin": "(-)(?:(Note|Volume|Issue|Pages)|(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"},
+                "2": {"name": "constant.language.minor-token"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "Date::minors": {
+            "begin": "(-)(?:(Note)|(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"},
+                "2": {"name": "constant.language.minor-token"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "Contributor::minors": {
+            "begin": "(-)(?:(Note|ORCID|Association|Role|Email)|(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"},
+                "2": {"name": "constant.language.minor-token"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "Funding::minors": {
+            "begin": "(-)(?:(Note|ID)|(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"},
+                "2": {"name": "constant.language.minor-token"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "Keyword::minors": {
+            "begin": "(-)(?:(Note)|(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"},
+                "2": {"name": "constant.language.minor-token"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "Species::minors": {
+            "begin": "(-)(?:(Note|Loc|ReefCollection|Cultured|CultureCollection)|(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"},
+                "2": {"name": "constant.language.minor-token"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "Method::minors": {
+            "begin": "(-)(?:(Note|Type|Company|Sample)|(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"},
+                "2": {"name": "constant.language.minor-token"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "Software_Ref::minors": {
+            "begin": "(-)(?:(Note|URI|Filename|Type|Version)|(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"},
+                "2": {"name": "constant.language.minor-token"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "Software_Copy::minors": {
+            "begin": "(-)(?:(Note|Path|Destination|Type|Version)|(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"},
+                "2": {"name": "constant.language.minor-token"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "Software_Primary::minors": {
+            "begin": "(-)(?:(Note|Path|Destination|Type|Version)|(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"},
+                "2": {"name": "constant.language.minor-token"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "Data_Ref::minors": {
+            "begin": "(-)(?:(Note|URI|Filename|Type)|(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"},
+                "2": {"name": "constant.language.minor-token"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "Data_Copy::minors": {
+            "begin": "(-)(?:(Note|Path|Destination|Type)|(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"},
+                "2": {"name": "constant.language.minor-token"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "Data_Primary::minors": {
+            "begin": "(-)(?:(Note|Path|Destination|Type)|(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"},
+                "2": {"name": "constant.language.minor-token"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "File::minors": {
+            "begin": "(-)(?:(Note|Path|Destination|URI)|(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"},
+                "2": {"name": "constant.language.minor-token"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "~::minors": {
+            "begin": "(-)(?:(?:\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"}
+            },
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "linking-token": {
+            "begin": "(-)(@)(?:(MEDFORD|Paper_Ref|Paper_Copy|Paper_Primary|Journal|Date|Contributor|Funding|Keyword|Species|Method|Software_Ref|Software_Copy|Software_Primary|Data_Ref|Data_Copy|Data_Primary|File)|(\\S+))?\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.token-seperator"},
+                "2": {"name": "keyword.control.linking-token"},
+                "3": {"name": "support.variable.linking-major"}
+            },
+            "contentName": "support.variable.linking-value",
+            "patterns": [
+                {"include": "#data"}
+            ]
+        },
+        "major-desc": {
+            "begin": "\\s+",
+            "end": "\\S?(?=^@|^`@|^#)",
+            "contentName": "string.unquoted.text",
+            "patterns": [
+                {"include": "#data"}
             ]
         },
         "macro-def": {
@@ -367,6 +538,14 @@
             "endCaptures": {"1": {"name": "keyword.control.endlatex.mfd"}},
             "contentName": "meta.latexblock.mfd",
             "patterns": [{"include": "text.tex.latex"}]
+        },
+        "data": {
+            "patterns": [
+                {"include": "#macro-use"},
+                {"include": "#latex"},
+                {"include": "#template"},
+                {"include": "#comment"}
+            ]
         }
     }
 }
