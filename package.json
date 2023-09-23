@@ -10,7 +10,7 @@
         "directory": "https://github.com/liam-strand/medford-vscode.git"
     },
     "icon": "assets/icons/mfd-icon-light.png",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "engines": {
         "vscode": "^1.68.0"
     },
