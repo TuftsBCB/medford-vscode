@@ -98,8 +98,8 @@ export function activate(context: ExtensionContext): void {
         client = connectToLangServerTCP(2087);
     } else {
         // Production - Client is going to run the server (for use within `.vsix` package)
-        const cwd = path.join(__dirname, "..", "..", "medford-language-server");
-        const pythonPath = workspace
+        /*const cwd = path.join(__dirname, "..", "..", "medford-language-server");
+        /*const pythonPath = workspace
             .getConfiguration("python")
             .get<string>("pythonPath");
 
@@ -110,7 +110,10 @@ export function activate(context: ExtensionContext): void {
         // Check that the mfdls server exists. If it doesn't, try to install it
         installDependencies(pythonPath);
 
-
+        */
+        const cwd="."
+        const pythonPath="python3"
+        
         client = startLangServer(pythonPath, ["-m", "mfdls"], cwd);
 
     }
