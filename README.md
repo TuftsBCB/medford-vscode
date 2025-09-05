@@ -28,11 +28,8 @@ There are no user-configurable settings at this time. If you'd like one added, p
 
 This software is in ***beta***! If you run into an issue with the user-interface, please open an issue in the [extension repository](https://github.com/liam-strand/medford-vscode). If you run into an issue with error messages or autocomplete, please open an issue in the [language server repository](https://github.com/liam-strand/medford-language-server). Also, feel free to email us if you have any questions or concerns!
 
-## Contributors:
-- [Liam Strand](https://github.com/liam-strand)
-- [Andrew Powers](https://github.com/andrew-powers)
 
-## Maintenance
+## Maintenance:
 
 To monitor node dependencies over time, use `depcheck` or `npm-check`.
 
@@ -50,6 +47,11 @@ If you want to clear the `node_modules` directory:
 rm -rf node_modules
 npm install
 ```
+
+## Contributors:
+- [Liam Strand](https://github.com/liam-strand)
+- [Andrew Powers](https://github.com/andrew-powers)
+
 
 <!-- 
 ## Python Dependencies:
