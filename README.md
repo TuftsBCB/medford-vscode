@@ -32,6 +32,25 @@ This software is in ***beta***! If you run into an issue with the user-interface
 - [Liam Strand](https://github.com/liam-strand)
 - [Andrew Powers](https://github.com/andrew-powers)
 
+## Maintenance
+
+To monitor node dependencies over time, use `depcheck` or `npm-check`.
+
+```
+npm install -g depcheck
+```
+
+```
+npm install -g npm-check
+```
+
+If you want to clear the `node_modules` directory:
+
+```
+rm -rf node_modules
+npm install
+```
+
 <!-- 
 ## Python Dependencies:
 * [pygls](https://pypi.org/project/pygls/)
